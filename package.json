@@ -1,0 +1,16 @@
+{
+  "name": "vantage-fit-dashboard-automation",
+  "version": "1.0.0",
+  "description": "Automation framework for Vantage Fit Dashboard using Playwright",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+} 
