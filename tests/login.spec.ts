@@ -47,7 +47,7 @@ test('should verify Admin Dashboard option is available for user with role', asy
     
     // Login with test user
     await loginPage.navigate();
-    await loginPage.login('johnmclane@jsdemo.com', 'welcome');
+    await loginPage.login('vantagefituser2@gmail.com', 'welcome');
     
     // Verify Admin Dashboard option is visible in profile dropdown
     expect(await dashboardPage.isAdminDashboardOptionVisible()).toBeTruthy();
