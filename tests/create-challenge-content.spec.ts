@@ -73,4 +73,29 @@ test.describe('Create Challenge Page Content Verification', () => {
         const description = await createChallengePage.getChallengeDescription('Streak');
         expect(description?.trim()).toBe('A simple competition may end up being a boring race. Add some flavour to your challenge by setting a daily target.');
     });
+
+    // Test cases for each template's description text
+    test('should display the correct description for "Stress Free Month" template', async () => {
+        const createChallengePage = new CreateChallengePage(adminPage);
+        const description = await createChallengePage.getTemplateDescription('Stress Free Month');
+        expect(description?.trim()).toBe('Join our HR team for a month-long campaign, "Embrace Serenity."');
+    });
+
+    test('should display the correct description for "Elevate Endurance" template', async () => {
+        const createChallengePage = new CreateChallengePage(adminPage);
+        const description = await createChallengePage.getTemplateDescription('Elevate Endurance');
+        expect(description?.trim()).toBe('Join us for "Elevate Endurance: Your Stamina Building Month."');
+    });
+
+    test('should display the correct description for "Mindful Moving" template', async () => {
+        const createChallengePage = new CreateChallengePage(adminPage);
+        const description = await createChallengePage.getTemplateDescription('Mindful Moving');
+        expect(description?.trim()).toBe('Join us for "Mindful Moving: A Month of Movement and Mindfulness."');
+    });
+
+    test('should display the correct description for "Healthy Habits Hero" template', async () => {
+        const createChallengePage = new CreateChallengePage(adminPage);
+        const description = await createChallengePage.getTemplateDescription('Healthy Habits Hero');
+        expect(description?.trim()).toBe('Introducing "Healthy Habits Hero: Your Month of Wellness."');
+    });
 }); 

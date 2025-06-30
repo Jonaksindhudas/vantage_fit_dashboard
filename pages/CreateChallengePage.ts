@@ -36,4 +36,33 @@ export class CreateChallengePage extends BasePage {
         await descriptionElement.waitFor({ state: 'visible', timeout: 10000 });
         return await descriptionElement.textContent();
     }
+
+    private getTemplateCardSelector(templateTitle: string): string {
+        return `//div[contains(@class, 'card-title') and normalize-space(text())='${templateTitle}']/ancestor::div[contains(@class, 'card-container')]`;
+    }
+
+    /**
+     * Clicks the "Use Template" button for a specific template.
+     * @param templateTitle - The title of the template to use.
+     */
+    async selectTemplate(templateTitle: 'Stress Free Month' | 'Elevate Endurance' | 'Mindful Moving' | 'Healthy Habits Hero') {
+        const templateCardSelector = this.getTemplateCardSelector(templateTitle);
+        const useTemplateButton = this.page.locator(`${templateCardSelector}//button`);
+        
+        await useTemplateButton.waitFor({ state: 'visible', timeout: 10000 });
+        await useTemplateButton.click();
+    }
+
+    /**
+     * Gets the description text for a specific template.
+     * @param templateTitle - The title of the template.
+     */
+    async getTemplateDescription(templateTitle: 'Stress Free Month' | 'Elevate Endurance' | 'Mindful Moving' | 'Healthy Habits Hero'): Promise<string | null> {
+        const templateCardSelector = this.getTemplateCardSelector(templateTitle);
+        const descriptionSelector = `${templateCardSelector}//div[contains(@class, 'card-body')]`;
+        
+        const descriptionElement = this.page.locator(descriptionSelector);
+        await descriptionElement.waitFor({ state: 'visible', timeout: 10000 });
+        return await descriptionElement.textContent();
+    }
 } 

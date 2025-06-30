@@ -78,4 +78,33 @@ test.describe('Create Challenge Flow', () => {
         await adminPage.waitForURL('**/create-challenge/streak-challenge', { timeout: 10000 });
         expect(adminPage.url()).toContain('/fit/create-challenge/streak-challenge');
     });
+
+    // Test cases for each template
+    test('should navigate to the correct page for "Stress Free Month" template', async () => {
+        const createChallengePage = new CreateChallengePage(adminPage);
+        await createChallengePage.selectTemplate('Stress Free Month');
+        await adminPage.waitForURL('**/create-challenge/custom-challenge?templateId=1', { timeout: 10000 });
+        expect(adminPage.url()).toContain('/fit/create-challenge/custom-challenge?templateId=1');
+    });
+
+    test('should navigate to the correct page for "Elevate Endurance" template', async () => {
+        const createChallengePage = new CreateChallengePage(adminPage);
+        await createChallengePage.selectTemplate('Elevate Endurance');
+        await adminPage.waitForURL('**/create-challenge/custom-challenge?templateId=2', { timeout: 10000 });
+        expect(adminPage.url()).toContain('/fit/create-challenge/custom-challenge?templateId=2');
+    });
+
+    test('should navigate to the correct page for "Mindful Moving" template', async () => {
+        const createChallengePage = new CreateChallengePage(adminPage);
+        await createChallengePage.selectTemplate('Mindful Moving');
+        await adminPage.waitForURL('**/create-challenge/custom-challenge?templateId=3', { timeout: 10000 });
+        expect(adminPage.url()).toContain('/fit/create-challenge/custom-challenge?templateId=3');
+    });
+
+    test('should navigate to the correct page for "Healthy Habits Hero" template', async () => {
+        const createChallengePage = new CreateChallengePage(adminPage);
+        await createChallengePage.selectTemplate('Healthy Habits Hero');
+        await adminPage.waitForURL('**/create-challenge/custom-challenge?templateId=4', { timeout: 10000 });
+        expect(adminPage.url()).toContain('/fit/create-challenge/custom-challenge?templateId=4');
+    });
 }); 
