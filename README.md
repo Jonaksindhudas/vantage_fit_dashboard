@@ -39,9 +39,16 @@ npm run report
 ## Project Structure
 
 - `tests/` - Contains all test files
+  - `login.spec.ts` - Tests for user login and basic navigation.
+  - `create-challenge-navigation.spec.ts` - Tests for navigating to each challenge creation page.
+  - `create-challenge-content.spec.ts` - Tests for verifying the content on the challenge creation page.
 - `pages/` - Contains Page Object Models
   - `BasePage.ts` - Base page object with common methods
   - `LoginPage.ts` - Login page specific methods
+  - `DashboardPage.ts` - Methods for interacting with the main dashboard after login.
+  - `AdminDashboardPage.ts` - Methods for the admin-specific dashboard views.
+  - `DashboardSidebarPage.ts` - Methods for interacting with the sidebar menu in the admin dashboard.
+  - `CreateChallengePage.ts` - Methods for the challenge creation selection page.
 - `playwright.config.ts` - Playwright configuration
 
 ## Writing Tests
